@@ -6,6 +6,9 @@ import type {
   FeaturedCollectionFragment,
   RecommendedProductsQuery,
 } from 'storefrontapi.generated';
+import { Switch } from '~/components/ui/Switch';
+import { Button } from '~/components/ui/Button';
+
 
 export const meta: MetaFunction = () => {
   return [{title: 'Hydrogen | Home'}];
@@ -59,6 +62,13 @@ export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="home">
+      <div className="flex items-center gap-4">
+      <Switch /> <span>Shadcn UI Switch</span>
+      <Button variant="outline">Read more</Button>
+      <Button variant="link">Read more</Button>
+      <Button variant="secondary">Read more</Button>
+      </div>
+      <h1 className="text-3xl underline font-bold pt-8">Hello world!</h1> {/* Added padding class */}
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
